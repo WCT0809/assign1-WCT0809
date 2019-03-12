@@ -19,6 +19,15 @@ int rayX;
 int rayY;
 
 int raySpeedX;
+int soldierSpeedX;
+
+int rayOverX;
+
+int robotLocationX = floor(random(6)+2);
+int robotLocationY = floor(random(4)+1);
+
+int soldierLocationX = floor(random(8)+1);
+int soldierLocationY = floor(random(4)+1);
 
 void setup() {
   size(640, 480);
@@ -35,14 +44,19 @@ void setup() {
   bgH = 480;
   sunX = 590;
   sunY= 50;
-  robotX = 400;
-  robotY= 160;
-  soldierX = 240;
-  soldierY= 400;
+  robotX = robotLocationX * 80;
+  robotY= 80 + robotLocationY * 80;
+   
+  soldierX = soldierLocationX * 80;
+  soldierY= 80 + soldierLocationY * 80;
+
   rayX =robotX+25;
   rayY =robotY+37;
   
+  rayOverX = rayX-160;
+  
   raySpeedX = 2;
+  soldierSpeedX = 2;
 }
 
 void draw() {
@@ -57,7 +71,12 @@ void draw() {
     stroke(255,0,0);
     strokeWeight(10);
     line(rayX,rayY,rayX+45,rayY);
-    rayX -= raySpeedX;
+    rayX -= raySpeedX; //
+    rayX %= (rayOverX); //
+  
+    soldierX +=soldierSpeedX;
+    soldierX %= 640;
+    
     image(robot,robotX,robotY);
     
     colorMode(RGB);
