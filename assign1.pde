@@ -15,6 +15,10 @@ int robotX;
 int robotY;
 int soldierX;
 int soldierY;
+int rayX;
+int rayY;
+
+int raySpeedX;
 
 void setup() {
   size(640, 480);
@@ -35,6 +39,10 @@ void setup() {
   robotY= 160;
   soldierX = 240;
   soldierY= 400;
+  rayX =robotX+25;
+  rayY =robotY+37;
+  
+  raySpeedX = 2;
 }
 
 void draw() {
@@ -48,7 +56,8 @@ void draw() {
     colorMode(RGB);
     stroke(255,0,0);
     strokeWeight(10);
-    line(robotX+25,robotY+37,robotX+65,robotY+37);
+    line(rayX,rayY,rayX+45,rayY);
+    rayX -= raySpeedX;
     image(robot,robotX,robotY);
     
     colorMode(RGB);
