@@ -76,7 +76,7 @@ void draw() {
     line(rayX,rayY,rayX+40,rayY);           //draw ray
     rayX -= raySpeedX; //
     if (rayX < robotX-160)                  //ray move loction(if rayX < robotX-160 Run rayX = robotX)
-      rayX = robotX;
+      rayX = robotX+25;
 
     soldierX +=soldierSpeedX;               //soldier move loction
     soldierX %= 640;
