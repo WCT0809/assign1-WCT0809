@@ -55,7 +55,7 @@ void setup() {
   soldierX = soldierLocationX * 80;
   soldierY= 80 + soldierLocationY * 80; //about real soldier x,y   4x8 to real loction
   
-  rayX =robotX-25;
+  rayX =robotX+25;
   rayY =robotY+37;       //robot hand x,y
   
   raySpeedX = 2;
@@ -75,7 +75,7 @@ void draw() {
     strokeWeight(10);
     line(rayX,rayY,rayX+40,rayY);           //draw ray
     rayX -= raySpeedX; //
-    if (rayX < robotX-160)                  //ray move loction
+    if (rayX < robotX-160)                  //ray move loction(if rayX < robotX-160 Run rayX = robotX)
       rayX = robotX;
 
     soldierX +=soldierSpeedX;               //soldier move loction
