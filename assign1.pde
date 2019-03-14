@@ -21,6 +21,7 @@ int soldierX;
 int soldierY;
 int rayX;
 int rayY;        //about item X,y
+int ray2X; 
 
 int raySpeedX;
 int soldierSpeedX;        //about speed
@@ -70,13 +71,16 @@ void draw() {
     image(life3,150,10,50,51);
     image(soldier,soldierX,soldierY);      //img all x,y
     
+    if ((robotX-rayX)<15){ray2X= robotX+25;//ray=40 or ray>(40-25)
+  }else {ray2X = rayX+40;
+}
     colorMode(RGB);
     stroke(255,0,0);
     strokeWeight(10);
-    line(rayX,rayY,rayX+40,rayY);           //draw ray
+    line(rayX,rayY,ray2X,rayY);           //draw ray
     rayX -= raySpeedX; //
     if (rayX < robotX-160)                  //ray move loction(if rayX < robotX-160 Run rayX = robotX)
-      rayX = robotX+25;
+      rayX = robotX;
 
     soldierX +=soldierSpeedX;               //soldier move loction
     soldierX %= 640;
