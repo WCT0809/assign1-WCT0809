@@ -68,7 +68,7 @@ void draw() {
     image(life1,10,10,50,51);
     image(life2,80,10,50,51);
     image(life3,150,10,50,51);
-    image(soldier,soldierX,soldierY);      //img all x,y
+    image(soldier,soldierX-80,soldierY);      //img all x,y
     
     if ((robotX-rayX)<15){ray2X= robotX+25;//ray=40 or ray>(40-25)
   }else {ray2X = rayX+40;
@@ -85,7 +85,7 @@ void draw() {
       rayX = robotX｝;
 
     soldierX +=soldierSpeedX;               //soldier move loction
-    soldierX %= 640;
+    soldierX %= 720;
            
     colorMode(RGB);
     fill(124,204,25);
