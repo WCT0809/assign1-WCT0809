@@ -29,7 +29,6 @@ int soldierSpeedX;        //about speed
 int robotLocationX = floor(random(6)+2);
 int robotLocationY = floor(random(4)+1);      //about location x,y by 4x8
 
-int soldierLocationX = floor(random(8)+1);
 int soldierLocationY = floor(random(4)+1);     //about location x,y by 4x8
 
 void setup() {
@@ -53,7 +52,7 @@ void setup() {
   robotX = robotLocationX * 80;
   robotY= 80 + robotLocationY * 80;  //about real robot x,y   4x8 1,2 can't
   
-  soldierX = soldierLocationX * 80;
+  soldierX = -80;
   soldierY= 80 + soldierLocationY * 80; //about real soldier x,y   4x8 to real loction
   
   rayX =robotX+25;
@@ -77,16 +76,17 @@ void draw() {
     colorMode(RGB);
     stroke(255,0,0);
     strokeWeight(10);
-    line(rayX,rayY,ray2X,rayY);           //draw ray
-    rayX -= raySpeedX; //
-    if (rayX < robotX-160)                  //ray move loction(if rayX < robotX-160 Run rayX = robotX)
-      rayX = robotX;
-
-    soldierX +=soldierSpeedX;               //soldier move loction
-    soldierX %= 640;
     
     image(robot,robotX,robotY);             //robot cover ray
     
+    line(rayX,rayY,ray2X,rayY);           //draw ray
+    rayX -= raySpeedX; //
+    if (rayX < robotX-160)｛                 //ray move loction(if rayX < robotX-160 Run rayX = robotX)
+      rayX = robotX｝;
+
+    soldierX +=soldierSpeedX;               //soldier move loction
+    soldierX %= 640;
+           
     colorMode(RGB);
     fill(124,204,25);
     noStroke();
